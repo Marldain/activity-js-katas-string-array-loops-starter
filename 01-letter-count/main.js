@@ -2,6 +2,7 @@
   LETTER COUNT
 
   1. Create a variable, named "word," which contains any lengthy word.
+  
   2. Create a second variable, named "letter," which contains any
       letter. 
   3. Write a WHILE statement which loops over the "word" string and
@@ -20,3 +21,28 @@
 */
 
 // YOUR CODE HERE
+let result = document.querySelector("#result");
+let input = document.querySelector("#inputBox");
+let longWord = document.querySelector("#longWord");
+let submit = document.querySelector("#submitButton");
+
+submit.addEventListener("click", function () {
+  let i = 0;
+  let count = 0;
+  let letter = input.value;
+  let word = longWord.innerText;
+
+  while (i < word.length) {
+    if (word[i] === letter) {
+      count++;
+    }
+    i++;
+  }
+
+  if (count) {
+    result.innerText =
+      "The letter" + letter + "exists" + count + "times in this word!";
+  } else {
+    result.innerText = "Nope, that letter doesn't exist in my word!";
+  }
+});
